@@ -1,0 +1,33 @@
+﻿@page
+@model LeagueVisionSimple.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home - News";
+}
+
+<h1 class="text-3xl font-bold mb-6 text-emerald-400">Latest Premier League News</h1>
+
+<div class="grid gap-4">
+    @if (Model.NewsList.Count == 0)
+    {
+        <p class="text-gray-400">Loading news or no news available at the moment.</p>
+    }
+    else
+    {
+        foreach (var news in Model.NewsList)
+        {
+            <!-- 
+                We changed this from a <div> to an <a> tag. 
+                The 'block' class makes the link fill the whole box.
+                The 'cursor-pointer' class makes the mouse turn into a hand.
+            -->
+            <a href="@news.Link" target="_blank" class="block bg-slate-900 p-4 rounded-lg border border-slate-800 hover:border-emerald-500 transition cursor-pointer">
+                
+                <!-- The Title -->
+                <h3 class="text-lg font-semibold text-white hover:underline">@news.Title</h3>
+                
+                <!-- The Description -->
+                <p class="text-sm text-gray-400 mt-2">@news.Description</p>
+            </a>
+        }
+    }
+</div>

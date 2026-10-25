@@ -1,0 +1,6 @@
+bin/
+obj/
+.vs/
+app.db
+app.db-shm
+app.db-wal

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - League Vision</title>
+    <!-- Tailwind CSS: Makes styling easy without separate CSS files -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-white min-h-screen font-sans">
+    
+    <!-- The Navigation Bar -->
+    <nav class="bg-slate-900 border-b border-slate-800 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            
+            <!-- App Logo -->
+            <a href="/" class="text-xl font-bold text-emerald-400 flex items-center gap-3">
+    <!-- The logo image -->
+    <img src="~/images/logo.png" alt="League Vision Logo" class="h-10 w-auto" />
+    <!-- The text -->
+    <span>League Vision</span>
+</a>
+            
+            <!-- Buttons -->
+            <div class="flex space-x-2 items-center text-sm font-medium">
+                <!-- Shaped buttons using padding, rounded corners, and hover effects -->
+                <a href="/" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">Home</a>
+                <a href="/Players" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">Players</a>
+                <a href="/Analyze" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">Analyze</a>
+                <a href="/About" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">About</a>
+                
+                <!-- Simple Logout Button -->
+                <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="inline">
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-red-800 hover:bg-red-700 transition text-white">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- This is where the page content will be placed -->
+    <main class="max-w-6xl mx-auto p-6">
+        @RenderBody()
+    </main>
+
+</body>
+</html>

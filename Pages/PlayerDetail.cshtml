@@ -1,0 +1,30 @@
+@page
+@model LeagueVisionSimple.Pages.PlayerDetailModel
+@{
+    ViewData["Title"] = "Player Details";
+}
+
+<h1 class="text-3xl font-bold mb-6 text-emerald-400">@Model.PlayerName</h1>
+
+<h2 class="text-xl font-semibold mb-4 text-white">Past Gameweeks</h2>
+<div class="overflow-x-auto rounded-lg border border-slate-800">
+    <table class="w-full text-sm">
+        <thead class="bg-slate-900 text-gray-400">
+            <tr>
+                <th class="p-3 text-left">GW</th>
+                <th class="p-3 text-right">Predicted Points</th>
+                <th class="p-3 text-right">Actual Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stat in Model.Stats)
+            {
+                <tr class="border-t border-slate-800 hover:bg-slate-900">
+                    <td class="p-3">Gameweek @stat.Gameweek</td>
+                    <td class="p-3 text-right text-gray-400">@stat.PredictedPoints</td>
+                    <td class="p-3 text-right font-bold text-emerald-400">@stat.ActualPoints</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
